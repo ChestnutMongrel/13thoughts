@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>twitter</title>
+    <link href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template (main class form-signin) -->
+    <link href="{{ url_for('static', filename= 'css/sign-in.css') }}" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col col-9">
+        
+          <!-- This is a text holder with a button on the top of the page -->
+          {% include 'text_button.html' %}
+
+          <!-- The field with statuses from users -->
+          <!-- Bunch of them for visual needs -->
+          {% for item in range(2) %}
+            {% include 'statuses_field.html' %}
+          {% endfor %}
+
+        </div>
+
+        <div class="col col-3">
+
+          {% include 'signin.html' %}
+          
+          {% include 'search.html' %}
+          
+          <!--  A form where will be a list of friends of the result from the search form -->
+          {% include 'friends.html' %}
+
+        </div>
+      </div>
+    </div>
+
+    <!-- It's not doing anything for now, so I don't know if it works... -->
+    <script src="{{ url_for('static', filename= 'js/bootstrap.bundle.min.js') }}"></script>
+  </body>
+</html>
